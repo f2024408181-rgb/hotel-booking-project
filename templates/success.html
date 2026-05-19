@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="hero">
+            <div class="hero-badge">⭐ Premium Stay</div>
+            <h1>You're all set!</h1>
+            <p>Your reservation has been received successfully.</p>
+        </div>
+        <div class="body">
+            <div class="success-ring">✓</div>
+            <h2 class="success-title">Booking Confirmed</h2>
+            <p class="success-sub">A confirmation will be sent to your email shortly.</p>
+            <div class="booking-ref">
+                <div class="ref-row">
+                    <span class="ref-label">Guest</span>
+                    <span class="ref-value">{{ full_name }}</span>
+                </div>
+                <div class="ref-row">
+                    <span class="ref-label">Room</span>
+                    <span class="ref-value">{{ room_type }}</span>
+                </div>
+                <div class="ref-row">
+                    <span class="ref-label">Guests</span>
+                    <span class="ref-value">{{ guests }}</span>
+                </div>
+                <div class="ref-row">
+                    <span class="ref-label">Check-in</span>
+                    <span class="ref-value">{{ check_in }}</span>
+                </div>
+                <div class="ref-row">
+                    <span class="ref-label">Check-out</span>
+                    <span class="ref-value">{{ check_out }}</span>
+                </div>
+            </div>
+            <a href="/" class="back-btn">Make another booking</a>
+        </div>
+    </div>
+</body>
+
+</html>

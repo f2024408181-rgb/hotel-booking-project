@@ -22,8 +22,9 @@ async def home(request: Request):
     )
 
 
-@app.post("/book")
+@app.post("/book", response_class=HTMLResponse)
 async def book_hotel(
+    request: Request,
     full_name: str = Form(...),
     email: str = Form(...),
     phone: str = Form(...),
@@ -33,7 +34,6 @@ async def book_hotel(
     guests: Optional[int] = Form(None),
     requests: Optional[str] = Form(None)
 ):
-
     booking_data = {
         "full_name": full_name,
         "email": email,
@@ -47,6 +47,14 @@ async def book_hotel(
 
     booking_collection.insert_one(booking_data)
 
-    return {
-        "message": "Booking Submitted Successfully"
-    }
+    return templates.TemplateResponse(
+        request=request,
+        name="success.html",
+        context={
+            "full_name": full_name,
+            "room_type": room_type,
+            "check_in": check_in,
+            "check_out": check_out,
+            "guests": guests
+        }
+    )
